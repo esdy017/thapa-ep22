@@ -3,11 +3,51 @@ import "./style.css";
 import Card from "./components/Card";
 import apiData from "./services/service_api.js";
 
+// function getCard(val) {
+//   console.log(val);
+//   return (
+//     <Card
+//       posterImg={val.posterImg}
+//       seriesCategory={val.seriesCategory}
+//       seriesTitle={val.seriesTitle}
+//       toWatch={val.toWatch}
+//     />
+//   );
+// }
+
+// const getCard = props => {
+//   return (
+//     <Card
+//       posterImg={props.posterImg}
+//       seriesCategory={props.seriesCategory}
+//       seriesTitle={props.seriesTitle}
+//       toWatch={props.toWatch}
+//     />
+//   );
+// };
+
 export default function App() {
   return (
     <div>
       <div className="header">Top 5 TV Series</div>
       <div className="cards">
+        {apiData.map(props => {
+          return (
+            <Card
+              posterImg={props.posterImg}
+              seriesCategory={props.seriesCategory}
+              seriesTitle={props.seriesTitle}
+              toWatch={props.toWatch}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+/* <div className="cards">{apiData.map(getCard)}</div> */
+/*
         <Card
           posterImg={apiData[0].posterImg}
           seriesCategory={apiData[0].seriesCategory}
@@ -50,7 +90,4 @@ export default function App() {
           seriesTitle={apiData[4].seriesTitle}
           toWatch={apiData[4].toWatch}
         />
-      </div>
-    </div>
-  );
-}
+*/
